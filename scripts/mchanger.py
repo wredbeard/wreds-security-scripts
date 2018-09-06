@@ -20,9 +20,9 @@ else:
     address = "00:00:00:00:00:01"
 
 #execute mac address modification
-subprocess.call("ifconfig " + interface + " down ", shell=True)
-subprocess.call("ifconfig " + interface + " hw ether " + address, shell=True)
-subprocess.call("ifconfig " + interface + " up", shell=True)
+subprocess.call(['ifconfig', interface, 'down'])
+subprocess.call(['ifconfig', interface, 'hw', 'ether', address])
+subprocess.call(['ifconfig', interface, 'up'])
 
 #warn user to check ifconfig for changes
 print(bcolors.WARNING + "\nPlease check ifconfig to ensure changes!" +
